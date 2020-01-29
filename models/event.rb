@@ -6,8 +6,8 @@ def find_event_by_id(value)
     run_sql("SELECT * FROM events where id = $1;", [value]).first
 end
 
-def update_event(name, image, id)
-    run_sql("update events set name = $1, image_url = $2 where id = $3;", [name, image, id])
+def update_event(name, image, id, date)
+    run_sql("update events set name = $1, image_url = $2, date = $3 where id = $4;", [name, image, date, id])
 end
 
 def delete_event(id)

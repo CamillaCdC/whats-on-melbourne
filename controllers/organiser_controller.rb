@@ -34,3 +34,9 @@ get '/organiser/event/:id' do
     @num_attendees = num_users_attending_event(params[:id])    
     erb :"/organiser/event_details"
 end
+
+patch '/organiser/event/:id' do
+    redirect "/organiser/login" unless organiser_logged_in?
+        update_event(params[:name], params[:image_url], params[:id], params[:date])
+        redirect "/organiser/event/#{params[:id]}"
+end

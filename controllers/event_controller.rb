@@ -22,14 +22,9 @@ end
 
 get '/event/:id/edit' do
     redirect "/organiser/login" unless organiser_logged_in?
+        @min = Time.now.strftime("%Y-%m-%d")
         @event = find_event_by_id(params[:id])
         erb :"/event/edit"    
-end
-
-patch '/event/:id' do
-    redirect "/organiser/login" unless organiser_logged_in?
-        update_event(params[:name], params[:image_url], params[:id])
-        redirect "/event/#{params[:id]}"
 end
 
 delete '/event/:id' do

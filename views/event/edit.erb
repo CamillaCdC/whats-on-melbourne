@@ -1,6 +1,6 @@
 <h1>edit <%= @event['name'] %></h1>
 
-<form action="/event/<%= @event['id'] %>" method="post">
+<form action="/organiser/event/<%= @event['id'] %>" method="post">
 
     <input type="hidden" name="_method" value="patch">
     
@@ -9,6 +9,9 @@
 
     <label for="">image url: </label>
     <input type="text" name="image_url" value="<%= @event['image_url'] %>">
+
+    <label for="">Date: </label>
+    <input type="date" name="date" value="<%= @event['date'] %>" min="<%= @min %>">
 
     <button>update</button>
 
