@@ -1,0 +1,11 @@
+img {
+    width: 150px;
+}
+
+header {
+    border-bottom: 1px solid black;
+}
+
+.events {
+    padding-top: 10px;
+}

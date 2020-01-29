@@ -1,0 +1,15 @@
+<h1>User Log In</h1>
+
+<p>New user? Create new account <a href="/user/new">here.</a></p>
+
+<div><%= @error %></div>
+
+<form action="/user/login" method="post">
+    <label for="email">Email: </label>
+    <input type="text" name="email">
+
+    <label for="password">Password: </label>
+    <input type="password" name="password">
+
+    <button>Log in</button>
+</form>

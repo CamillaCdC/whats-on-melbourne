@@ -8,7 +8,44 @@
 </head>
 <body>
 
-  <%= yield %>
+    <header>
+        <h1><a href="/">Whats on Melbourne?</a></h1>
+
+        <% if organiser_logged_in? %>
+        
+            <p class="headerItem">Hi, <%= current_organiser['organiser_name'] %></p>
+
+            <p><a href="/organiser/events">My Events</a></p>
+
+            <p><a href="/event/new">Create new event</a></p>
+
+            <form action="/session" method="post" class="headerItem">
+                <input type="hidden" name="_method" value="delete">
+                <button>logout</button>
+            </form>
+
+
+        <% elsif user_logged_in? %>
+
+            <p>Hi <%= current_user['username']%></p>
+
+            <p><a href=""></a></p>
+
+            <form action="/session" method="post" class="headerItem">
+                <input type="hidden" name="_method" value="delete">
+                <button>logout</button>
+            </form>
+        
+        <% else %>
+           
+            <h3><a href="/organiser/login">Event Organiser Log In</a></h3>
+            <h3><a href="/user/login">User Log In</a></h3>
+      
+        <% end %>
+
+    </header>
+
+    <%= yield %>
 
 </body>
 </html>

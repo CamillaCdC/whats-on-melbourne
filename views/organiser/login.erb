@@ -1,0 +1,15 @@
+<h1>Event Organiser Log In</h1>
+
+<p>New organiser? Create new account <a href="/organiser/new">here.</a></p>
+
+<div><%= @error %></div>
+
+<form action="/organiser/login" method="post">
+    <label for="organiserName">Organisation name: </label>
+    <input type="text" name="organiserName">
+
+    <label for="password">Password: </label>
+    <input type="password" name="password">
+
+    <button>Log in</button>
+</form>

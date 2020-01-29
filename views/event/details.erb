@@ -1,0 +1,18 @@
+<h1>Event Details</h1>
+
+    <div>
+        <img src="<%= @event['image_url'] %>" alt="">
+        <p><%= @event['name'] %></p>
+    </div>
+
+     <% if logged_in? %>
+        <div class="buttons">
+            <a href="/event/<%= @event['id'] %>/edit"  class="editBtn">
+             <span>edit</span>
+            </a>
+            <form action="/event/<%= @event['id'] %>" method="post" class="deleteForm">
+                <input type="hidden" name="_method" value="delete">
+                <button class="deleteBtn">delete</button>
+            </form>
+        </div>
+    <% end %>
