@@ -19,7 +19,7 @@ def find_organiser_by_id(id)
 end
 
 def find_organiser_events_by_id(id)
-    run_sql("select * from events where organiser_id = $1", [id])
+    run_sql("select * from events where organiser_id = $1 ORDER BY date asc;", [id])
 end
 
 def new_organiser(name, password)

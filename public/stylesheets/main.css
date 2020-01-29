@@ -9,3 +9,27 @@ header {
 .events {
     padding-top: 10px;
 }
+
+/* Actual styling */
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+header {
+    margin: auto;
+    max-width: 100%;
+}
+
+.headerContent {
+    margin: auto;
+    max-width: 850px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+nav {
+    justify-self: right;
+    align-self: center;
+}

@@ -1,9 +1,9 @@
 def all_events 
-    run_sql("SELECT * FROM events;")
+    run_sql("SELECT * FROM events ORDER BY date asc;")
 end
 
 def find_event_by_id(value)
-    run_sql("SELECT * FROM events where id = $1;", [value]).first
+    run_sql("SELECT * FROM events where id = $1 ORDER BY date asc;;", [value]).first
 end
 
 def update_event(name, image, id, date)

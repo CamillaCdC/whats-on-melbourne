@@ -9,8 +9,11 @@
 <body>
 
     <header>
+    <div class="headerContent">
+        
         <h1><a href="/">Whats on Melbourne?</a></h1>
 
+        <nav>
         <% if organiser_logged_in? %>
         
             <p class="headerItem">Hi, <%= current_organiser['organiser_name'] %></p>
@@ -38,14 +41,20 @@
         
         <% else %>
            
-            <h3><a href="/organiser/login">Event Organiser Log In</a></h3>
-            <h3><a href="/user/login">User Log In</a></h3>
+            <p><a href="/organiser/login">Event Organiser Log In</a></p>
+
+            <p><a href="/user/login">User Log In</a></p>
       
         <% end %>
-
+        </nav>
+        
+    </div> 
     </header>
+
+<div class="container">
 
     <%= yield %>
 
+</div>
 </body>
 </html>

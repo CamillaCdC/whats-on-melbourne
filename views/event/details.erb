@@ -7,12 +7,19 @@
 </div>
 
 <% if @questions.length != 0 %>
+    <h3>Questions:</h3>
+    
     <% @questions.each do |question|  %>
         <% if question['answer'] != nil%>
-            <p>Questions:</p>
-            <p><%= question['question'] %></p>
-            <p><%= question['answer'] %></p>
+            <p>Q: <%= question['question'] %></p>
+            <p>A: <%= question['answer'] %></p>
+
+        <% elsif question['answer'] == nil && question['user_id'] == session[:user_id] %>
+            <p>Your questions yet to be answered: </p>
+            <p>Q: <%= question['question'] %></p>
+        
         <% end %>
+    
     <% end %>
 <% end %>
 
@@ -24,11 +31,9 @@
     </div>
 
     <% else %>
-
         <p><a href="/event/<%= @event['id'] %>/remove">Remove from my events</a></p> 
-
     <% end %>
 
-        <p><a href="/question/event/<%= @event['id'] %>">Ask a question about this event</a></p>
+    <p><a href="/question/event/<%= @event['id'] %>">Ask a question about this event</a></p>
 
 <% end %>

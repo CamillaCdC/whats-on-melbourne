@@ -15,6 +15,7 @@ post '/organiser/login' do
 end
 
 get '/organiser/events' do 
+    redirect to '/organiser/login' unless organiser_logged_in?
     @events = find_organiser_events_by_id(session[:organiser_id])
     erb :'/organiser/my_events'
 end
@@ -29,6 +30,7 @@ post '/organiser' do
 end
 
 get '/organiser/event/:id' do
+    redirect to '/organiser/login' unless organiser_logged_in?
     @event = find_event_by_id(params[:id])
     @num_attendees = num_users_attending_event(params[:id]) 
     @questions = find_questions_by_event_id(params[:id])
@@ -36,6 +38,7 @@ get '/organiser/event/:id' do
 end
 
 patch '/organiser/event/:id' do
+    redirect to '/organiser/login' unless organiser_logged_in?
     update_event(params[:name], params[:image_url], params[:id], params[:date])
     redirect "/organiser/event/#{params[:id]}"
 end

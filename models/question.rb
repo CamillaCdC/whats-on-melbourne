@@ -24,6 +24,6 @@ def insert_answer(answer, id)
     run_sql("update questions set answer = $1 where id = $2;", [answer, id])
 end
 
-def get_event_from_quesiton_id(id)
-    run_sql("select event_id from questions where id = $1;", [id])
+def get_event_id_from_quesiton_id(id)
+    run_sql("select event_id from questions where id = $1;", [id]).first.values.join.to_i
 end

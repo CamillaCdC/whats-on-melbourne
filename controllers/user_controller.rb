@@ -15,6 +15,7 @@ post '/user/login' do
 end
 
 get '/user/:userurl/events' do
+    redirect to '/user/login' unless user_logged_in?
     @events = find_user_events_info(session[:user_id])
     erb :'/user/my_events'
 end
