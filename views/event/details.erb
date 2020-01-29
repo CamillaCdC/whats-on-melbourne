@@ -3,16 +3,19 @@
     <div>
         <img src="<%= @event['image_url'] %>" alt="">
         <p><%= @event['name'] %></p>
+        <p>Date: <%= @event['date'] %></p>
     </div>
 
-     <% if logged_in? %>
-        <div class="buttons">
-            <a href="/event/<%= @event['id'] %>/edit"  class="editBtn">
-             <span>edit</span>
-            </a>
-            <form action="/event/<%= @event['id'] %>" method="post" class="deleteForm">
-                <input type="hidden" name="_method" value="delete">
-                <button class="deleteBtn">delete</button>
-            </form>
+    <% if user_logged_in? %>
+        <% if user_attending(@event['id']) == false %>
+
+        <div>
+            <a href="/event/<%= @event['id'] %>/add">Add to my events</a>        
         </div>
+
+        <% else %>
+
+            <a href="/event/<%= @event['id'] %>/remove">Remove from my events</a>
+
+        <% end %>
     <% end %>

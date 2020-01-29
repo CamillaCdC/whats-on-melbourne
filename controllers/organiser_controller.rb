@@ -15,8 +15,9 @@ post '/organiser/login' do
 end
 
 get '/organiser/events' do 
-    @events = find_organiser_by_id(session[:organiser_id])
-    erb :'/organiser/my_events'
+    redirect "/organiser/login" unless organiser_logged_in?
+        @events = find_organiser_by_id(session[:organiser_id])
+        erb :'/organiser/my_events'
 end
 
 get '/organiser/new' do
@@ -26,4 +27,10 @@ end
 post '/organiser' do
     new_organiser(params[:name], params[:password])
     redirect "/organiser/login"
+end
+
+get '/organiser/event/:id' do
+    @event = find_event_by_id(params[:id])
+    @num_attendees = num_users_attending_event(params[:id])    
+    erb :"/organiser/event_details"
 end

@@ -29,7 +29,7 @@
 
             <p>Hi <%= current_user['username']%></p>
 
-            <p><a href=""></a></p>
+            <p><a href="/<%= current_user['userurl'] %>/events">My events</a></p>
 
             <form action="/session" method="post" class="headerItem">
                 <input type="hidden" name="_method" value="delete">

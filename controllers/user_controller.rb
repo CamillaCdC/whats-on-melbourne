@@ -7,9 +7,24 @@ post '/user/login' do
     results = find_user_by_email(params[:email])
     if results.count == 1 && BCrypt::Password.new(results[0]['password_digest']) == params[:password]
         session[:user_id] = results[0]['id']
-        redirect '/'
+        redirect "/#{results.to_a.first['userurl']}/events"
     else
         @error = "Incorrect username or password"
         erb :"/user/login"
     end
+end
+
+get '/:userurl/events' do
+    redirect "/user/login" unless user_logged_in?
+        @events = find_user_events_info(session[:user_id])
+        erb :'/user/my_events'
+end
+
+get '/user/new' do
+    erb :"/user/new"
+end
+
+post '/user' do
+    new_user(params[:name], params[:email], params[:password])
+    redirect "/user/login"
 end

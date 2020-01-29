@@ -2,11 +2,14 @@
 
 <form action="/event" method="post">
 
-    <label for="">name</label>
+    <label for="name">name</label>
     <input type="text" name="name">
 
-    <label for="">image url</label>
+    <label for="image_url">image url</label>
     <input type="text" name="image_url">
+
+    <label for="date">event date</label>
+    <input type="date" name="date" min="<%= @min %>">
 
     <button>create</button>
 
