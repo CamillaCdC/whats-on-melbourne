@@ -1,0 +1,9 @@
+<form action="/question/<%= @event['id'] %>" method="post">
+
+    <h2>Whats your question for <%= @organiser['organiser_name'] %> about <%= @event['name'] %>?</h2>
+
+    <label for="question">Quesiton:</label>
+    <input type="text" name="question">
+
+    <button>ask question</button>
+</form>

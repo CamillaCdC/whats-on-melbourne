@@ -14,6 +14,6 @@ def delete_event(id)
     run_sql("delete from events where id = $1;", [id])
 end
 
-def create_new_event(name, image, organiser_id)
-    run_sql("insert into events (name, image_url, organiser_id) values ($1, $2, $3);", [name, image, organiser_id])
+def create_new_event(name, image, organiser_id, date)
+    run_sql("insert into events (name, image_url, organiser_id, date) values ($1, $2, $3, $4);", [name, image, organiser_id, date])
 end

@@ -15,6 +15,10 @@ def find_organiser_by_name(name)
 end
 
 def find_organiser_by_id(id)
+    run_sql("select * from event_organisers where id = $1;", [id]).first
+end
+
+def find_organiser_events_by_id(id)
     run_sql("select * from events where organiser_id = $1", [id])
 end
 

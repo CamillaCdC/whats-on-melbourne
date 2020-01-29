@@ -1,10 +1,8 @@
 <h2>Organiser events</h2>
 
-<div class="events">
     <% @events.each do |event| %>
         <a href="/organiser/event/<%= event['id'] %>" class="event">
             <img src="<%= event['image_url'] %>" alt="">
             <h3><%= event['name'] %></h3>
         </a>
     <% end %>
-</div>

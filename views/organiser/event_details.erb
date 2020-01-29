@@ -7,6 +7,19 @@
 
     <p>Date: <%= @event['date'] %></p>
 
+    <p>Questions:</p>
+    <% @questions.each do |question|  %>
+    <p><%= question['question'] %></p>
+
+        <% if question['answer'] == nil%>
+            <p><a href="/question/<%= question['id'] %>/answer">write answer to question</a></p>
+            
+        <% else %>
+            <p><%= question['answer'] %></p>
+        <% end %>
+
+    <% end %>
+
     <div class="buttons">
         <a href="/event/<%= @event['id'] %>/edit"  class="editBtn">
             <span>edit</span>

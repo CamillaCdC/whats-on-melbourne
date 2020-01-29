@@ -31,4 +31,11 @@ CREATE TABLE users_events_junction (
     FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 );
 
-INSERT INTO users_events_junction (event_id, user_id) VALUES (5, 1);
+CREATE TABLE questions (
+    id SERIAL PRIMARY KEY, 
+    question VARCHAR (500) NOT NULL, 
+    answer VARCHAR (500),
+    user_id INTEGER, 
+    event_id INTEGER, 
+    FOREIGN KEY (event_id) REFERENCES events (id) ON DELETE CASCADE
+);

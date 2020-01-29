@@ -1,0 +1,13 @@
+<h2>Question for <%= @event['name'] %></h2>
+
+<h3>question: <%= @question['question'] %></h3>
+
+<form action="/question/answer/<%= @question['id'] %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+
+    <label for="answer">answer</label>
+    <input type="text" name="answer">
+
+    <button>post answer</button>
+
+</form>
