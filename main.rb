@@ -1,15 +1,6 @@
 require 'sinatra'
 require 'bcrypt'
 require 'cloudinary'
-require 'active_support'
-require 'action_view'
-require 'rails'
-
-# include CloudinaryHelper
-# helpers do
-#     def controller() nil end
-#     def config() nil end  
-#   end
 
 require_relative 'db/shared.rb'
 
