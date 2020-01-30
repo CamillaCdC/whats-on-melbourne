@@ -25,7 +25,7 @@ get '/organiser/new' do
 end
 
 post '/organiser' do
-    new_organiser(params[:name], params[:password])
+    new_organiser(params[:name], params[:password], params[:email])
     redirect "/organiser/login"
 end
 
@@ -39,6 +39,21 @@ end
 
 patch '/organiser/event/:id' do
     redirect to '/organiser/login' unless organiser_logged_in?
-    update_event(params[:name], params[:image_url], params[:id], params[:date])
+    update_event(params[:name], params[:id], params[:date], params[:starttime], params[:endtime])
     redirect "/organiser/event/#{params[:id]}"
+end
+
+patch '/organiser/event/:id/edit_image' do
+    redirect to '/organiser/login' unless organiser_logged_in?
+    auth = {
+        cloud_name: "davvorufu",
+        api_key:    "143522215714335",
+        api_secret: "sjpmAB8vJZ4zB3s0QFwfGirz0FU"
+    }
+
+    image = Cloudinary::Uploader.upload(params[:image][:tempfile], auth)
+
+    update_image(image['url'], params[:id])
+
+    redirect "/event/#{params[:id]}/edit"
 end

@@ -18,7 +18,9 @@ end
 
 get '/event/:id' do 
     @event = find_event_by_id(params[:id])
+    @organiser = find_organiser_by_id(@event['organiser_id'])
     @questions = find_questions_by_event_id(params[:id])
+    @answers = find_answers(params[:id])
     erb :"/event/details"
 end
 
@@ -37,7 +39,22 @@ end
 
 post '/event' do
     redirect to '/organiser/login' unless organiser_logged_in?
-    create_new_event(params[:name], params[:image_url], session[:organiser_id], params[:date])
+    
+    auth = {
+        cloud_name: "davvorufu",
+        api_key:    "143522215714335",
+        api_secret: "sjpmAB8vJZ4zB3s0QFwfGirz0FU"
+    }
+
+    image = Cloudinary::Uploader.upload(params[:image][:tempfile], auth)
+    create_new_event(params[:name], image['secure_url'], session[:organiser_id], params[:date], params[:description], params[:starttime], params[:endtime])
     redirect "/organiser/events"
+
 end
+
+get '/event/:id/edit_image' do
+    redirect to '/organiser/login' unless organiser_logged_in?
+    @event = find_event_by_id(params[:id])
+    erb :"/event/edit_image"
+end 
 

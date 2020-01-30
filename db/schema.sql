@@ -3,15 +3,19 @@ CREATE DATABASE whatsonmelbourne;
 CREATE TABLE event_organisers (
     id SERIAL PRIMARY KEY, 
     organiser_name VARCHAR(200) UNIQUE NOT NULL, 
-    password_digest VARCHAR(400) NOT NULL
+    password_digest VARCHAR(400) NOT NULL, 
+    email VARCHAR (300) NOT NULL
 );
 
 CREATE TABLE events (
     id SERIAL PRIMARY KEY, 
     name VARCHAR(200) NOT NULL, 
-    image_url VARCHAR(500) NOT NULL, 
+    image_url VARCHAR(500) NOT NULL,
+    description VARCHAR (700) NOT NULL, 
     organiser_id INTEGER NOT NULL, 
     date VARCHAR (15) NOT NULL,
+    start_time VARCHAR (10) NOT NULL, 
+    end_time VARCHAR (10) NOT NULL,
     FOREIGN KEY (organiser_id) REFERENCES event_organisers (id) ON DELETE CASCADE
 );
 

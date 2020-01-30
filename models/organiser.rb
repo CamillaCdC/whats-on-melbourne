@@ -22,9 +22,9 @@ def find_organiser_events_by_id(id)
     run_sql("select * from events where organiser_id = $1 ORDER BY date asc;", [id])
 end
 
-def new_organiser(name, password)
+def new_organiser(name, password, email)
     digested_password = BCrypt::Password.create(password)
-    run_sql("insert into event_organisers (organiser_name, password_digest) values ($1, $2);", [name, digested_password])
+    run_sql("insert into event_organisers (organiser_name, password_digest, email) values ($1, $2, $3);", [name, digested_password, email])
 end
 
 def num_users_attending_event(id)

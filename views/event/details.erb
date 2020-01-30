@@ -1,39 +1,53 @@
-<h1>Event Details</h1>
+<h1><%= @event['name'] %> Details</h1>
 
-<div>
-    <img src="<%= @event['image_url'] %>" alt="">
-    <p><%= @event['name'] %></p>
-    <p>Date: <%= @event['date'] %></p>
-</div>
+<div class="eventDetails">
 
-<% if @questions.length != 0 %>
-    <h3>Questions:</h3>
-    
-    <% @questions.each do |question|  %>
-        <% if question['answer'] != nil%>
-            <p>Q: <%= question['question'] %></p>
-            <p>A: <%= question['answer'] %></p>
+    <img class="detailsImage" src="<%= @event['image_url'] %>" alt="">
 
-        <% elsif question['answer'] == nil && question['user_id'] == session[:user_id] %>
-            <p>Your questions yet to be answered: </p>
-            <p>Q: <%= question['question'] %></p>
-        
+    <div class="info">
+
+        <p>Date: <%= @event['date'] %></p>
+        <p>Description: <%= @event['description'] %></p>
+
+        <p>Start time: <%= Time.parse(@event['start_time']).strftime("%I : %M %p") %></p>
+
+        <p>End time: <%= Time.parse(@event['end_time']).strftime("%I : %M %p") %></p>
+
+        <% if @questions.length != 0 %>
+            
+            <% @questions.each do |question|  %>
+                <% if question['answer'] != nil%>
+                    <h3>Question:</h3>
+                    <p>Q: <%= question['question'] %></p>
+                    <p>A: <%= question['answer'] %></p>
+
+                <% elsif question['answer'] == nil && question['user_id'] == session[:user_id] %>
+                    <h3>Question:</h3>
+                    <p>Your questions yet to be answered: </p>
+                    <p>Q: <%= question['question'] %></p>
+                
+                <% end %>
+            
+            <% end %>
         <% end %>
-    
-    <% end %>
-<% end %>
 
-<% if user_logged_in? %>
-    <% if user_attending(@event['id']) == false %>
+        <% if user_logged_in? %>
+            <% if user_attending(@event['id']) == false %>
 
-    <div>
-        <a href="/event/<%= @event['id'] %>/add">Add to my events</a>        
+            <div>
+                <a href="/event/<%= @event['id'] %>/add">Add to my events</a>        
+            </div>
+
+            <% else %>
+                <p><a href="/event/<%= @event['id'] %>/remove">Remove from my events</a></p> 
+            <% end %>
+
+            <p><a href="/question/event/<%= @event['id'] %>">Ask a question about this event</a></p>
+
+        <% end %>
+
+        <p>Organiser contact:<a href="mailto:<%= @organiser['email'] %>"><%= @organiser['email'] %></a></p>
+
     </div>
-
-    <% else %>
-        <p><a href="/event/<%= @event['id'] %>/remove">Remove from my events</a></p> 
-    <% end %>
-
-    <p><a href="/question/event/<%= @event['id'] %>">Ask a question about this event</a></p>
-
-<% end %>
+    
+</div>

@@ -1,35 +1,203 @@
-img {
-    width: 150px;
+body {
+    font-family: 'Abel', sans-serif;
 }
-
-header {
-    border-bottom: 1px solid black;
-}
-
-.events {
-    padding-top: 10px;
-}
-
-/* Actual styling */
 
 .container {
     max-width: 800px;
     margin: auto;
+    padding-bottom: 20px;
 }
 
 header {
     margin: auto;
     max-width: 100%;
+    border-bottom: 1px solid black;
+    background-color: black;
 }
 
 .headerContent {
     margin: auto;
     max-width: 850px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    color: white;
 }
 
-nav {
+.coollink {
+    position: relative;
+    text-decoration: none;
+    color: white;
+}
+
+.coollink:hover:after {
+    width: 100%;
+    right: 0;
+}
+
+.coollink:after {
+    bottom: 0;
+    content: "";
+    height: 2px;
+    right: 0;
+    position: absolute;
+    background: white;
+    transition: width .3s ease 0s, right 0.5s ease 0s;
+    width: 0;
+}
+
+h1 {
+    align-self: center;
+    flex-grow: 1;
+}
+
+h1 a {
+    text-decoration: none;
+    color: white;
+}
+
+h1::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width .3s;
+}
+
+h1:hover:after {
+    width: 260px;
+}
+
+.headerBox2 {
     justify-self: right;
     align-self: center;
+    font-size: 1.2em;
+    text-align: right;
+}
+
+/* organiser specific header */
+
+.organiserLoggedIn {
+    margin: auto;
+    max-width: 850px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.organiserLoggedIn * {
+    padding-left: 15px;
+    color: white;
+}
+
+/* event layouts */
+.events {
+    padding-top: 10px;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+
+.imageBox {
+    width: 200px;
+    height: 200px;
+}
+
+img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
+}
+
+.imageBoxEdit {
+    width: 100px;
+    height: 100px;
+}
+
+.event {
+    justify-self: center;
+    padding: 10px;
+}
+
+.event:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+}
+
+.eventDetails {
+    display: flex;
+}
+
+.eventDetails * {
+    padding: 0 15px;
+}
+
+.detailsImage {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+}
+
+.indexEventName {
+    margin-bottom: 0;
+    margin-top: 5px;
+}
+
+.indexEventDate {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.back {
+    float:right;
+    text-decoration: none;
+    color: black;
+}
+
+.back:hover {
+    text-decoration: underline;
+}
+
+/* new event form */
+
+.formNote {
+    font-size: small;
+    color: slategrey;
+    padding-left: 20px;
+    margin-top: 0;
+}
+
+.decriptLabel {
+    vertical-align: top;
+}
+
+.eventNameInput {
+    width: 250px;
+}
+
+section {
+    margin-bottom: 15px;
+}
+
+
+/* footer layout */
+
+footer {
+    border-top: 1px solid black;
+    text-align: center;
+}
+
+.footerContent {
+    margin: auto;
+    max-width: 850px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.logout {
+    border: 1px solid black;
+    padding: 5px 8px;
+}
+
+.logout:hover {
+    background-color: black;
+    color: white;
 }

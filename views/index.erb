@@ -1,9 +1,15 @@
+
 <div class="events">
+    
     <% @events.each do |event| %>
+        
         <a href="/event/<%= event['id'] %>" class="event">
-            <img src="<%= event['image_url'] %>" alt="">
-            <h3><%= event['name'] %></h3>
-            <p><%= event['date'] %></p>
+            <div class="imageBox">
+                <img src="<%= event['image_url'] %>" alt="">
+            </div>
+            <h3 class="indexEventName"><%= event['name'] %></h3>
+            <p class="indexEventDate"><%= event['date'] %></p>
         </a>
+    
     <% end %>
 </div>

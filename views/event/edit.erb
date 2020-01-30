@@ -1,18 +1,37 @@
-<h1>edit <%= @event['name'] %></h1>
+<h1>Edit <%= @event['name'] %> details</h1>
 
 <form action="/organiser/event/<%= @event['id'] %>" method="post">
 
     <input type="hidden" name="_method" value="patch">
     
-    <label for="">name: </label>
-    <input type="text" name="name" value="<%= @event['name'] %>">
+    <section>
+        <label for="">Name: </label>
+        <input type="text" name="name" value="<%= @event['name'] %>">
+    </section>
 
-    <label for="">image url: </label>
-    <input type="text" name="image_url" value="<%= @event['image_url'] %>">
+    <section>
+        <p>Image: </p>
+        <div class="imageBoxEdit">
+            <img src="<%= @event['image_url'] %>" alt="">
+        </div>
+        <a href="/event/<%= @event['id'] %>/edit_image">Change image</a>
+    </section>
 
-    <label for="">Date: </label>
-    <input type="date" name="date" value="<%= @event['date'] %>" min="<%= @min %>">
+    <section>
+        <label for="">Date: </label>
+        <input type="date" name="date" value="<%= @event['date'] %>" min="<%= @min %>">
+    </section>
 
-    <button>update</button>
+    <section>
+        <label for="time">Start Time: </label>  
+        <input type="time" name="starttime" value="<%= @event['start_time'] %>">
+    </section>
+
+    <section>
+        <label for="time">End Time: </label>  
+        <input type="time" name="endtime" value="<%= @event['end_time'] %>">
+    </section>
+
+    <button>Update</button>
 
 </form>

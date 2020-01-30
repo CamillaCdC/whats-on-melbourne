@@ -1,13 +1,14 @@
 <h2>Question for <%= @event['name'] %></h2>
 
-<h3>question: <%= @question['question'] %></h3>
+<p>Question: <%= @question['question'] %></p>
 
 <form action="/question/answer/<%= @question['id'] %>" method="post">
     <input type="hidden" name="_method" value="patch">
 
-    <label for="answer">answer</label>
-    <input type="text" name="answer">
-
-    <button>post answer</button>
+    <label class="decriptLabel" for="answer">Answer: </label>
+    <textarea name="answer" cols="30" rows="10" placeholder="Type your answer here. Max 500 characters."></textarea>
+    <div>
+        <button>Post answer</button>
+    </div>
 
 </form>

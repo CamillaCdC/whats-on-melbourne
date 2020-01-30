@@ -1,11 +1,19 @@
-<h2>My events</h2>
+<h2><%= current_user['username'].capitalize%>'s events</h2>
 
 <div class="events">
-    <% @events.each do |event| %>
-        <a href="/event/<%= event['id'] %>" class="event">
-            <img src="<%= event['image_url'] %>" alt="">
-            <h3><%= event['name'] %></h3>
-            <p><%= event['date'] %></p>
-        </a>
+
+    <% if @events == [] %>
+        <p>You don't have any events! See all events <a href="/">here.</a></p>
+
+    <% else %>
+        <%  @events.each do |event| %>
+            <a href="/event/<%= event['id'] %>" class="event">
+            <div class="imageBox">
+                <img src="<%= event['image_url'] %>" alt="">
+            </div>
+            <h3 class="indexEventName"><%= event['name'] %></h3>
+            <p class="indexEventDate"><%= event['date'] %></p>
+            </a>
+        <% end %>
     <% end %>
 </div>

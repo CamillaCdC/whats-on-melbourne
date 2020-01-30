@@ -27,3 +27,7 @@ end
 def get_event_id_from_quesiton_id(id)
     run_sql("select event_id from questions where id = $1;", [id]).first.values.join.to_i
 end
+
+def find_answers(id)
+    run_sql("select answer from questions where event_id = $1", [id])
+end

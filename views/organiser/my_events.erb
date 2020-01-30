@@ -1,8 +1,18 @@
-<h2>Organiser events</h2>
+<h2><%= current_organiser['organiser_name'] %> events</h2>
 
-    <% @events.each do |event| %>
-        <a href="/organiser/event/<%= event['id'] %>" class="event">
-            <img src="<%= event['image_url'] %>" alt="">
-            <h3><%= event['name'] %></h3>
-        </a>
+<div class="events">
+    <% if @events.ntuples == 0 %>
+        <p>You don't have any events listed! Create a new event <a href="/event/new">here.</a></p>
+    
+    <% else %>
+        <% @events.each do |event| %>
+            <a href="/organiser/event/<%= event['id'] %>" class="event">
+                <div class="imageBox">
+                    <img src="<%= event['image_url'] %>" alt="">
+                </div>
+                <h3 class="indexEventName"><%= event['name'] %></h3>
+                <p class="indexEventDate"><%= event['date'] %></p>
+            </a>
+        <% end %>
     <% end %>
+</div>

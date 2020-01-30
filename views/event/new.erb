@@ -1,16 +1,38 @@
 <h2>Create new event</h2>
 
-<form action="/event" method="post">
+<form action="/event" method="post" enctype="multipart/form-data">
+    <section>
+        <label for="name">Event Name: </label>
+        <input type="text" name="name" class="eventNameInput">
+        <p class="formNote">Max 200 characters.</p>
+    </section>
 
-    <label for="name">name</label>
-    <input type="text" name="name">
+    <section>
+        <label for="image">Image: </label>
+        <input type="file" name="image">
+        <p class="formNote">We recommend square images, and no less than 350px by 350px.</p>
+    </section>
 
-    <label for="image_url">image url</label>
-    <input type="text" name="image_url">
+    <section>
+        <label for="date">Event Date: </label>
+        <input type="date" name="date" min="<%= @min %>">
+    </section>
 
-    <label for="date">event date</label>
-    <input type="date" name="date" min="<%= @min %>">
+    <section>
+        <label for="time">Start Time: </label>  
+        <input type="time" name="starttime">
+    </section>
 
-    <button>create</button>
+    <section>
+        <label for="time">End Time: </label>  
+        <input type="time" name="endtime">
+    </section>
+
+    <section>
+        <label for="description" class="decriptLabel">Describe your event:</label>
+        <textarea name="description" cols="50" rows="10" placeholder="Your description here. Max 700 characters."></textarea>
+    </section>
+
+    <button>Create Event</button>
 
 </form>
