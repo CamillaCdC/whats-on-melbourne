@@ -44,6 +44,28 @@ header {
     width: 0;
 }
 
+.myEvents {
+    position: relative;
+    text-decoration: none;
+    color: white;
+}
+
+.myEvents:hover:after {
+    width: 100%;
+    right: 0;
+}
+
+.myEvents:after {
+    bottom: 0;
+    content: "";
+    height: 2px;
+    right: 0;
+    position: absolute;
+    background: white;
+    transition: width .3s ease 0s, right 0.5s ease 0s;
+    width: 0;
+}
+
 h1 {
     align-self: center;
     flex-grow: 1;
@@ -115,6 +137,7 @@ img {
 .event {
     justify-self: center;
     padding: 10px;
+    text-decoration: none;
 }
 
 .event:hover {
@@ -138,11 +161,14 @@ img {
 .indexEventName {
     margin-bottom: 0;
     margin-top: 5px;
+    color: black;
+    text-transform: uppercase;
 }
 
 .indexEventDate {
     margin-bottom: 0;
     margin-top: 0;
+    color: black;
 }
 
 .back {

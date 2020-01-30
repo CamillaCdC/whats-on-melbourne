@@ -26,7 +26,7 @@
         <% elsif user_logged_in? %>  
             <div class="headerBox2">
                 <p>Hi, <%= current_user['username'].capitalize%>!</p>
-                <p><a href="/user/<%= current_user['userurl'] %>/events">My events</a></p>
+                <p><a href="/user/<%= current_user['userurl'] %>/events" class="myEvents">My events</a></p>
             </div>   
         </div>  
            
