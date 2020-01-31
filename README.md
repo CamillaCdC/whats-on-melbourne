@@ -21,10 +21,18 @@ The app has the ability for two different kinds of logins, one for event organis
 
 ## Databases
 
+I have 5 different tables for this app; event_organisers, events, users, users_event_juntion, and questions. 
+
 ![Databases](https://res.cloudinary.com/davvorufu/image/upload/v1580429144/IMG_0784_mcscqo.jpg)
 
 ## User Flow
 
 ![User Flow](https://res.cloudinary.com/davvorufu/image/upload/v1580429144/IMG_0783_tv8joc.jpg)
 
+## Unsolved problems
 
+There are a few features that I would have liked to add to this project: 
+
+* Break up events by month, ideally I would like to create pagination on the index page so that only the events for the current month are displayed. Links at the bottom of the page would take the user to the next or the previous month
+
+* Better design, I would like to improve the visual design of the app
