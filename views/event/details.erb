@@ -6,13 +6,16 @@
 
     <div class="info">
 
-        <p class="dateDetails">Date: <%= @event['date'] %></p>
-        <p>Description: <%= @event['description'] %></p>
+        <p class="dateDetails">Date: <%= Date.parse(@event['date']).strftime("%d/%m/%y%y") %></p>
 
         <p>Start time: <%= Time.parse(@event['start_time']).strftime("%I:%M %p") %></p>
 
         <p>End time: <%= Time.parse(@event['end_time']).strftime("%I:%M %p") %></p>
 
+        <p>Location: <%= @suburb %></p>
+
+        <p>Description: <%= @event['description'] %></p>
+        
         <% if @questions.length != 0 %>
             <h3>Questions:</h3>
             
@@ -44,6 +47,10 @@
             <p><a href="/question/event/<%= @event['id'] %>">Ask a question about this event</a></p>
 
         <% end %>
+
+        <h3>Organiser Details:</h3>
+
+        <p>Organiser name: <%= @organiser['organiser_name'] %></p>
 
         <p>Organiser contact:<a href="mailto:<%= @organiser['email'] %>"><%= @organiser['email'] %></a></p>
 

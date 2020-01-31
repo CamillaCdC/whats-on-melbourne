@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'bcrypt'
 require 'cloudinary'
+require 'ausburbs'
+require 'yaml'
 
 require_relative 'db/shared.rb'
 

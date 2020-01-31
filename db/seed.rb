@@ -4,7 +4,7 @@ require 'pry'
 
 # digested_password = BCrypt::Password.create('pudding')
 
-# run_sql("INSERT INTO event_organisers (organiser_name, password_digest, email) VALUES ($1, $2, $3);", ['test organiser', digested_password, "dt@ga.co"]);
+# run_sql("INSERT INTO event_organisers (organiser_name, password_digest, email) VALUES ($1, $2, $3);", ['test organiser', digested_password, "test@ga.co"]);
 
 test_organiser = run_sql("select * from event_organisers").first;
 
@@ -16,7 +16,7 @@ description = "The Lady of the Lake, her arm clad in the purest shimmering samit
 image = "https://www.crucial.com.au/blog/wp-content/uploads/2014/12/events_medium.jpg"
 
 10.times do 
-    run_sql("insert into events (name, image_url, description, organiser_id, date, start_time, end_time) values ($1, $2, $3, $4, $5, $6, $7);", ["#{title1.sample} #{title2.sample}", "#{image}", "#{description}", test_organiser["id"], Time.now.strftime("%Y-%m-%d"), "18:00", "21:30"])   
+    run_sql("insert into events (name, image_url, description, organiser_id, date, start_time, end_time, postcode) values ($1, $2, $3, $4, $5, $6, $7, $8);", ["#{title1.sample} #{title2.sample}", "#{image}", "#{description}", test_organiser["id"], Time.now.strftime("%Y-%m-%d"), "18:00", "21:30", "3000"])   
 end
 
 # username = 'test user'

@@ -27,7 +27,7 @@ def find_user_events_info(user_id)
     event_info = []
     event_ids.each do |pair|
         event = pair.values.join.to_i
-        result = run_sql("select name, image_url, id, date from events where id = $1", [event]).first
+        result = run_sql("select name, image_url, id, date, start_time from events where id = $1", [event]).first
         if result != nil
             event_info << result
         end

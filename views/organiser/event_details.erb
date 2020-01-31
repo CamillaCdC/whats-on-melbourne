@@ -1,4 +1,4 @@
-<h1 class="eventTitle"><%= @event['name'] %> Details</h1>
+<h1 class="eventTitle"><%= @event['name'] %> Details - Organiser View</h1>
 
 <div class="eventDetails">
 
@@ -6,11 +6,15 @@
 
     <div class="info">
 
-        <p class="dateDetails">Date: <%= @event['date'] %></p>
+        <p class="dateDetails">Date: <%= Date.parse(@event['date']).strftime("%d/%m/%y%y") %></p>
         
         <p>Start time: <%= Time.parse(@event['start_time']).strftime("%I:%M %p") %></p>
 
         <p>End time: <%= Time.parse(@event['end_time']).strftime("%I:%M %p") %></p>
+
+        <p>Location: <%= @suburb %></p>
+
+        <p>Description: <%= @event['description'] %></p>
 
         <p>Number of attendees: <%= @num_attendees %></p>
         
@@ -36,6 +40,8 @@
                 <button class="deleteBtn">delete</button>
             </form>
         </div>
+
+        <p><a href="/event/<%= @event['id'] %>" class="buttonFormatting">View live event</a></p>
 
     </div>
 

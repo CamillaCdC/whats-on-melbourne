@@ -16,6 +16,7 @@ CREATE TABLE events (
     date VARCHAR (15) NOT NULL,
     start_time VARCHAR (10) NOT NULL, 
     end_time VARCHAR (10) NOT NULL,
+    postcode VARCHAR (4) NOT NULL,
     FOREIGN KEY (organiser_id) REFERENCES event_organisers (id) ON DELETE CASCADE
 );
 

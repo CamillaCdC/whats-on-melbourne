@@ -1,4 +1,13 @@
 require 'pry'
-require_relative 'db/seed.rb'
+require 'ausburbs'
+require 'yaml'
 
-# binding.pry
+postcode = '3000'
+
+Ausburbs::state("VIC").suburbs.each do |suburb| 
+    if suburb.postcode == postcode 
+        p suburb.name 
+    end
+end
+
+binding.pry

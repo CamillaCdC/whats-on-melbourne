@@ -90,11 +90,16 @@ h1:hover:after {
     width: 260px;
 }
 
+h2 {
+    text-transform: capitalize;
+}
+
 .headerBox2 {
     justify-self: right;
     align-self: center;
     font-size: 1.2em;
     text-align: right;
+    text-transform: capitalize;
 }
 
 /* organiser specific header */
@@ -204,7 +209,6 @@ img {
 
 .buttons {
     display: flex;
-    justify-content: space-between;
 }
 
 .editBtn {
@@ -262,7 +266,7 @@ section {
     margin-bottom: 0;
 }
 
-.changeImageBtn {
+.buttonFormatting {
     text-decoration: none;
     color: black;
     font-family: 'Abel', sans-serif;
@@ -270,9 +274,13 @@ section {
     padding: 4px 23px;
 }
 
-.changeImageBtn:hover {
+.buttonFormatting:hover {
     color: white;
     background-color: black;
+}
+
+.error {
+    color: red;
 }
 
 /* footer layout */

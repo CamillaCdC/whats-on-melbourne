@@ -14,7 +14,7 @@
         <div class="imageBoxEdit">
             <img src="<%= @event['image_url'] %>" alt="">
         </div>
-        <p><a href="/event/<%= @event['id'] %>/edit_image" class="changeImageBtn">Change image</a></p>
+        <p><a href="/event/<%= @event['id'] %>/edit_image" class="buttonFormatting">Change image</a></p>
     </section>
 
     <section>
@@ -30,6 +30,11 @@
     <section>
         <label for="time">End Time: </label>  
         <input type="time" name="endtime" value="<%= @event['end_time'] %>">
+    </section>
+
+    <section>
+        <label for="postcode">Location postcode: </label>
+        <input type="postcode" name="postcode" value="<%= @event['postcode'] %>">
     </section>
 
     <button>Update</button>

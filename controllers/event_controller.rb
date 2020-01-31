@@ -21,6 +21,12 @@ get '/event/:id' do
     @organiser = find_organiser_by_id(@event['organiser_id'])
     @questions = find_questions_by_event_id(params[:id])
     @answers = find_answers(params[:id])
+    
+    Ausburbs::state("VIC").suburbs.each do |suburb| 
+        if suburb.postcode == @event['postcode'] 
+            @suburb = suburb.name.capitalize
+        end
+    end
     erb :"/event/details"
 end
 
@@ -47,7 +53,7 @@ post '/event' do
     }
 
     image = Cloudinary::Uploader.upload(params[:image][:tempfile], auth)
-    create_new_event(params[:name], image['secure_url'], session[:organiser_id], params[:date], params[:description], params[:starttime], params[:endtime])
+    create_new_event(params[:name], image['secure_url'], session[:organiser_id], params[:date], params[:description], params[:starttime], params[:endtime], params[:postcode])
     redirect "/organiser/events"
 
 end

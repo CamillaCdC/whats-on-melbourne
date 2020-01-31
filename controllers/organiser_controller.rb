@@ -34,12 +34,17 @@ get '/organiser/event/:id' do
     @event = find_event_by_id(params[:id])
     @num_attendees = num_users_attending_event(params[:id]) 
     @questions = find_questions_by_event_id(params[:id])
+    Ausburbs::state("VIC").suburbs.each do |suburb| 
+        if suburb.postcode == @event['postcode'] 
+            @suburb = suburb.name.capitalize
+        end
+    end
     erb :"/organiser/event_details"
 end
 
 patch '/organiser/event/:id' do
     redirect to '/organiser/login' unless organiser_logged_in?
-    update_event(params[:name], params[:id], params[:date], params[:starttime], params[:endtime])
+    update_event(params[:name], params[:id], params[:date], params[:starttime], params[:endtime], params[:postcode])
     redirect "/organiser/event/#{params[:id]}"
 end
 
