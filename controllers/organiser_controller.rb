@@ -53,7 +53,7 @@ patch '/organiser/event/:id/edit_image' do
 
     image = Cloudinary::Uploader.upload(params[:image][:tempfile], auth)
 
-    update_image(image['url'], params[:id])
+    update_image(image['secure_url'], params[:id])
 
     redirect "/event/#{params[:id]}/edit"
 end

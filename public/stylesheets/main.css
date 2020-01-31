@@ -69,6 +69,7 @@ header {
 h1 {
     align-self: center;
     flex-grow: 1;
+    text-transform: capitalize;
 }
 
 h1 a {
@@ -103,14 +104,21 @@ h1:hover:after {
     max-width: 850px;
     display: flex;
     justify-content: flex-end;
+    padding-bottom: 5px;
 }
 
 .organiserLoggedIn * {
-    padding-left: 15px;
+    margin-left: 15px;
     color: white;
+    font-size: 18px;
 }
 
 /* event layouts */
+
+.eventTitle {
+    text-align: center;
+}
+
 .events {
     padding-top: 10px;
     display: grid;
@@ -171,14 +179,8 @@ img {
     color: black;
 }
 
-.back {
-    float:right;
-    text-decoration: none;
-    color: black;
-}
-
-.back:hover {
-    text-decoration: underline;
+.dateDetails {
+    margin-top: 0;
 }
 
 /* new event form */
@@ -186,7 +188,6 @@ img {
 .formNote {
     font-size: small;
     color: slategrey;
-    padding-left: 20px;
     margin-top: 0;
 }
 
@@ -198,10 +199,81 @@ img {
     width: 250px;
 }
 
+
+/* Buttons on event organiser details paget */
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.editBtn {
+    border: 1px solid black;
+    text-decoration: none;
+    color: black;
+    margin-right: 15px;
+}
+
+.editBtn p {
+    padding-top: 4px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.editBtn:hover {
+    background-color: black;
+    color: white;
+}
+
+.deleteBtn {
+    border: 1px solid black;
+    padding: 4px 23px;
+}
+
+.deleteBtn:hover {
+    background-color: black;
+    color: white;
+}
+
+button {
+    font-family: 'Abel', sans-serif;
+    font-size: 1em;
+    border: 1px solid black;
+    padding: 4px 23px;
+}
+
+button:hover {
+    color: white;
+    background-color: black;
+}
+
 section {
+    display:grid;
+    grid-template-columns: .2fr .6fr;
     margin-bottom: 15px;
 }
 
+.editImageSection {
+    display: grid; 
+    grid-template-columns: .2fr .2fr .6fr;   
+}
+
+.withFormNote {
+    margin-bottom: 0;
+}
+
+.changeImageBtn {
+    text-decoration: none;
+    color: black;
+    font-family: 'Abel', sans-serif;
+    border: 1px solid black;
+    padding: 4px 23px;
+}
+
+.changeImageBtn:hover {
+    color: white;
+    background-color: black;
+}
 
 /* footer layout */
 
@@ -216,11 +288,6 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-around;
-}
-
-.logout {
-    border: 1px solid black;
-    padding: 5px 8px;
 }
 
 .logout:hover {

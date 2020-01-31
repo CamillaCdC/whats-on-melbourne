@@ -3,11 +3,11 @@
 <form method="post" action="/organiser/event/<%= @event['id'] %>/edit_image" enctype="multipart/form-data">
     <input type="hidden" name="_method" value="patch">
 
-    <section>
+    <section class="withFormNote">
         <label for="image">New Image: </label>
         <input type="file" name="image">
-        <p class="formNote">We recommend square images, and no less than 350px by 350px.</p>
     </section>
+    <p class="formNote">We recommend square images, and no less than 350px by 350px.</p>
 
     <button>Upload Image</button>
 

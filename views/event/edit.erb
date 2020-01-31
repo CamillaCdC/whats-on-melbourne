@@ -9,12 +9,12 @@
         <input type="text" name="name" value="<%= @event['name'] %>">
     </section>
 
-    <section>
+    <section class="editImageSection">
         <p>Image: </p>
         <div class="imageBoxEdit">
             <img src="<%= @event['image_url'] %>" alt="">
         </div>
-        <a href="/event/<%= @event['id'] %>/edit_image">Change image</a>
+        <p><a href="/event/<%= @event['id'] %>/edit_image" class="changeImageBtn">Change image</a></p>
     </section>
 
     <section>
