@@ -35,7 +35,6 @@ I have 5 different tables for this app; event_organisers, events, users, users_e
 There are a few features that I would have liked to add to this project: 
 
 * Break up events by month, ideally I would like to create pagination on the index page so that only the events for the current month are displayed. Links at the bottom of the page would take the user to the next or the previous month
-
 * Better design, I would like to improve the visual design of the app
-
 * I would have liked to create the ability for both users and event organisers to change their details
+* Ability to refine/search by different options
