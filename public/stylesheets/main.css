@@ -296,6 +296,8 @@ section {
 footer {
     border-top: 1px solid black;
     text-align: center;
+    margin: auto;
+    max-width: 100%;
 }
 
 .footerContent {

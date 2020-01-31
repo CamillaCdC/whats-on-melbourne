@@ -16,7 +16,7 @@
 
         <% if organiser_logged_in? %>
             <p class="headerBox2">Hi, <%= current_organiser['organiser_name'] %></p>
-        </div> 
+    </div> 
 
             <nav class="organiserLoggedIn">
                 <span><a href="/organiser/events" class="coollink">My Events</a></span>
@@ -28,7 +28,7 @@
                 <p>Hi, <%= current_user['username'].capitalize%>!</p>
                 <p><a href="/user/<%= current_user['userurl'] %>/events" class="myEvents">My events</a></p>
             </div>   
-        </div>  
+    </div>  
            
         <% else %>
         <nav class="headerBox2">
